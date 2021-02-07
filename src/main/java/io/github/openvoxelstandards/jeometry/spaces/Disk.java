@@ -1,5 +1,5 @@
 /*
- * Geometry: The Open Voxel Standards (OVS) geometry library.
+ * Jeometry: The Open Voxel Standards (OVS) geometry library for Java.
  * Copyright (c) 2021 DocW
  *
  * This program is free software: you can redistribute it and/or modify
@@ -17,22 +17,19 @@
  * <https://www.gnu.org/licenses/>.
  */
 
-package io.github.openvoxelstandards.geometry.spaces;
+package io.github.openvoxelstandards.jeometry.spaces;
 
-import io.github.openvoxelstandards.geometry.indices.HorizontalIndex;
-import io.github.openvoxelstandards.geometry.indices.TwoInd;
-import io.github.openvoxelstandards.geometry.positions.HorizontalPosition;
-import io.github.openvoxelstandards.geometry.positions.TwoPos;
+import io.github.openvoxelstandards.jeometry.indices.HorizontalIndex;
+import io.github.openvoxelstandards.jeometry.positions.HorizontalPosition;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
-public class Rectangle implements BaseSpace {
+public class Disk implements BaseSpace {
     int sizeX, sizeY;
-    @NotNull TwoInd lowerBoundInd, upperBoundInd;
-    @NotNull TwoPos lowerBoundPos, upperBoundPos;
+    int sizeXSquared, sizeYSquared;
 
     @Contract(pure = true)
-    public Rectangle(int sizeX, int sizeY) {
+    public Disk(int sizeX, int sizeY) {
         if (sizeX < 1)
             throw new IllegalArgumentException(String.format(
                 "expected a positive integer for sizeX, got %s instead", sizeX));
@@ -41,25 +38,39 @@ public class Rectangle implements BaseSpace {
                 "expected a positive integer for sizeY, got %s instead", sizeY));
         this.sizeX = sizeX;
         this.sizeY = sizeY;
-        this.lowerBoundInd = new TwoInd(-this.sizeX, -this.sizeY);
-        this.upperBoundInd = new TwoInd(this.sizeX, this.sizeY);
-        this.lowerBoundPos = new TwoPos(-this.sizeX, -this.sizeY);
-        this.upperBoundPos = new TwoPos(this.sizeX + 1, this.sizeY + 1);
+        this.sizeXSquared = Disk.square(this.sizeX);
+        this.sizeYSquared = Disk.square(this.sizeY);
+    }
+
+    @Contract(pure = true)
+    static int square(int value) {
+        return value * value;
+    }
+
+    @Contract(pure = true)
+    static double square(double value) {
+        return value * value;
+    }
+
+    boolean isInside(double x, double y) {
+        return Disk.square(x) / this.sizeXSquared + Disk.square(y) / this.sizeYSquared <= 1D;
     }
 
     @Override
     public boolean isInside(@NotNull HorizontalIndex horizontalIndex) {
-        return this.lowerBoundInd.getX() <= horizontalIndex.getX() &&
-            this.lowerBoundInd.getY() <= horizontalIndex.getY() &&
-            horizontalIndex.getX() <= this.upperBoundInd.getX() &&
-            horizontalIndex.getY() <= this.upperBoundInd.getY();
+        int x = horizontalIndex.getX();
+        int y = horizontalIndex.getY();
+        if (x < 0)
+            x -= 1;
+        if (y < 0)
+            y -= 1;
+        return this.isInside(x, y);
     }
 
     @Override
     public boolean isInside(@NotNull HorizontalPosition horizontalDisplacement) {
-        return this.lowerBoundPos.getX() <= horizontalDisplacement.getX() &&
-            this.lowerBoundPos.getY() <= horizontalDisplacement.getY() &&
-            horizontalDisplacement.getX() <= this.upperBoundPos.getX() &&
-            horizontalDisplacement.getY() <= this.upperBoundPos.getY();
+        double x = horizontalDisplacement.getX();
+        double y = horizontalDisplacement.getY();
+        return Disk.square(x) / this.sizeXSquared + Disk.square(y) / this.sizeYSquared <= 1F;
     }
 }

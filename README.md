@@ -1,6 +1,6 @@
 # Geometry
 
-Geometry: The Open Voxel Standards (OVS) geometry library.\
+Jeometry: The Open Voxel Standards (OVS) geometry library for Java.\
 Copyright &copy; 2021 [DocW]
 
 This program is free software: you can redistribute it and/or modify it

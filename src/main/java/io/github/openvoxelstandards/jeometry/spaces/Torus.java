@@ -1,5 +1,5 @@
 /*
- * Geometry: The Open Voxel Standards (OVS) geometry library.
+ * Jeometry: The Open Voxel Standards (OVS) geometry library for Java.
  * Copyright (c) 2021 DocW
  *
  * This program is free software: you can redistribute it and/or modify
@@ -17,16 +17,16 @@
  * <https://www.gnu.org/licenses/>.
  */
 
-package io.github.openvoxelstandards.geometry.spaces;
+package io.github.openvoxelstandards.jeometry.spaces;
 
-import io.github.openvoxelstandards.geometry.indices.HorizontalIndex;
-import io.github.openvoxelstandards.geometry.indices.ThreeInd;
-import io.github.openvoxelstandards.geometry.indices.ThreeIndex;
-import io.github.openvoxelstandards.geometry.indices.TwoInd;
-import io.github.openvoxelstandards.geometry.positions.HorizontalPosition;
-import io.github.openvoxelstandards.geometry.positions.ThreePos;
-import io.github.openvoxelstandards.geometry.positions.ThreePosition;
-import io.github.openvoxelstandards.geometry.positions.TwoPos;
+import io.github.openvoxelstandards.jeometry.indices.HorizontalIndex;
+import io.github.openvoxelstandards.jeometry.indices.ThreeInd;
+import io.github.openvoxelstandards.jeometry.indices.ThreeIndex;
+import io.github.openvoxelstandards.jeometry.indices.TwoInd;
+import io.github.openvoxelstandards.jeometry.positions.HorizontalPosition;
+import io.github.openvoxelstandards.jeometry.positions.ThreePos;
+import io.github.openvoxelstandards.jeometry.positions.ThreePosition;
+import io.github.openvoxelstandards.jeometry.positions.TwoPos;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 

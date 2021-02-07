@@ -1,5 +1,5 @@
 /*
- * Geometry: The Open Voxel Standards (OVS) geometry library.
+ * Jeometry: The Open Voxel Standards (OVS) geometry library for Java.
  * Copyright (c) 2021 DocW
  *
  * This program is free software: you can redistribute it and/or modify
@@ -17,23 +17,8 @@
  * <https://www.gnu.org/licenses/>.
  */
 
-package io.github.openvoxelstandards.geometry.positions;
+package io.github.openvoxelstandards.jeometry.indices;
 
-public class TwoPos implements HorizontalPosition {
-    private final double x, y;
-
-    public TwoPos(double x, double y) {
-        this.x = x;
-        this.y = y;
-    }
-
-    @Override
-    public double getX() {
-        return this.x;
-    }
-
-    @Override
-    public double getY() {
-        return this.y;
-    }
+public interface VerticalIndex extends Index {
+    int getZ();
 }

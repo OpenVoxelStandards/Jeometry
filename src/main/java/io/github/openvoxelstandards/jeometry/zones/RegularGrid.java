@@ -1,5 +1,5 @@
 /*
- * Geometry: The Open Voxel Standards (OVS) geometry library.
+ * Jeometry: The Open Voxel Standards (OVS) geometry library for Java.
  * Copyright (c) 2021 DocW
  *
  * This program is free software: you can redistribute it and/or modify
@@ -17,7 +17,7 @@
  * <https://www.gnu.org/licenses/>.
  */
 
-package io.github.openvoxelstandards.geometry.indices;
+package io.github.openvoxelstandards.jeometry.zones;
 
-public interface Index {
+public interface RegularGrid extends ZoneGrid {
 }

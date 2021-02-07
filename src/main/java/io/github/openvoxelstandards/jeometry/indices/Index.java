@@ -1,5 +1,5 @@
 /*
- * Geometry: The Open Voxel Standards (OVS) geometry library.
+ * Jeometry: The Open Voxel Standards (OVS) geometry library for Java.
  * Copyright (c) 2021 DocW
  *
  * This program is free software: you can redistribute it and/or modify
@@ -17,10 +17,7 @@
  * <https://www.gnu.org/licenses/>.
  */
 
-package io.github.openvoxelstandards.geometry.indices;
+package io.github.openvoxelstandards.jeometry.indices;
 
-public interface HorizontalIndex extends Index {
-    int getX();
-
-    int getY();
+public interface Index {
 }

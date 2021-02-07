@@ -1,5 +1,5 @@
 /*
- * Geometry: The Open Voxel Standards (OVS) geometry library.
+ * Jeometry: The Open Voxel Standards (OVS) geometry library for Java.
  * Copyright (c) 2021 DocW
  *
  * This program is free software: you can redistribute it and/or modify
@@ -17,10 +17,10 @@
  * <https://www.gnu.org/licenses/>.
  */
 
-package io.github.openvoxelstandards.geometry.zones;
+package io.github.openvoxelstandards.jeometry.zones;
 
-import io.github.openvoxelstandards.geometry.indices.HorizontalIndex;
-import io.github.openvoxelstandards.geometry.indices.ThreeIndex;
+import io.github.openvoxelstandards.jeometry.indices.HorizontalIndex;
+import io.github.openvoxelstandards.jeometry.indices.ThreeIndex;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
